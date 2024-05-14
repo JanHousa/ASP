@@ -1,0 +1,18 @@
+﻿@page
+@model UploadDownload.Pages.DownloadModel
+
+@{
+    ViewData["Title"] = "Download File";
+}
+
+<h1>Download File</h1>
+
+<p>Please enter the filename you want to download.</p>
+
+<form method="get" asp-page="Download">
+    <div class="form-group">
+        <label for="filename">Filename:</label>
+        <input type="text" id="filename" name="filename" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Download</button>
+</form>

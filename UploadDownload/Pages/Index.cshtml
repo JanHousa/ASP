@@ -1,0 +1,27 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="post" enctype="multipart/form-data" asp-page="/Upload">
+    <div>
+        <label for="fileUpload">Vyberte soubor k nahrání:</label>
+        <input type="file" id="fileUpload" name="fileUpload" required />
+    </div>
+    <div>
+        <button type="submit">Nahrát soubor</button>
+    </div>
+</form>
+
+<h2>Seznam souborů</h2>
+
+@foreach (var file in Model.Files)
+{
+    <div>
+        <img src="@Url.Page("/Download", new { fileId = file.Id })" alt="File Image" />
+        <a href="@Url.Page("/Download", new { fileId = file.Id })">Download</a>
+    </div>
+}
